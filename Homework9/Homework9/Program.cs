@@ -18,11 +18,23 @@ namespace Homework9
             {
                 case 1:
                     DynamicQueue<int> TestQueue = new DynamicQueue<int>();
-                    EventHendlerForQueueAndStack hendler = new EventHendlerForQueueAndStack();
-                    TestQueue.EvendHendlerAddelem += hendler.MessageAdd;
-                    TestQueue.EvendHendlerRemoveItem += hendler.MessageRem;
-                    TestQueue.EventHandlerBufferIsFull += hendler.MessageFull;
-                    TestQueue.EventHandlerBufferIsEmpty += hendler.MessageEmpty;
+                    EventHendlerForQueueAndStack Queuehendler = new EventHendlerForQueueAndStack();
+                    TestQueue.EvendHendlerAddelem += Queuehendler.MessageAdd;
+                    TestQueue.EvendHendlerRemoveItem += Queuehendler.MessageRem;
+                    TestQueue.EventHandlerBufferIsFull += Queuehendler.MessageFull;
+                    TestQueue.EventHandlerBufferIsEmpty += Queuehendler.MessageEmpty;
+
+                    Console.WriteLine("please set max buffer size for Queue");
+                    try
+                    {
+                        TestQueue.MaxSize = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                        Console.ReadLine();
+                        return;
+                    }
 
                     Console.WriteLine("Press 1 for Enque");
                     Console.WriteLine("Press 2 for Dequeue");
@@ -53,6 +65,22 @@ namespace Homework9
                     break;
                 case 2:
                     DynamicStack<int> TestStack = new DynamicStack<int>();
+                    EventHendlerForQueueAndStack StackHendler = new EventHendlerForQueueAndStack();
+                    TestStack.EvendHendlerAddelem += StackHendler.MessageAdd;
+                    TestStack.EvendHendlerRemoveItem += StackHendler.MessageRem;
+                    TestStack.EventHandlerBufferIsFull += StackHendler.MessageFull;
+                    TestStack.EventHandlerBufferIsEmpty += StackHendler.MessageEmpty;
+                    Console.WriteLine("please set max buffer size for Stack");
+                    try
+                    {
+                        TestStack.MaxSize = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                        Console.ReadLine();
+                        return;
+                    }
                     Console.WriteLine("Press 1 for Push");
                     Console.WriteLine("Press 2 for Pop");
                     Console.WriteLine("Press 3 for Peek");

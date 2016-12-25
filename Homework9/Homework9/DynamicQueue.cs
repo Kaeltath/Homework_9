@@ -8,8 +8,14 @@ namespace Homework9
 {
     class DynamicQueue<T> : IMyQueue<T>, IPrintable
     {
-        private int MaxSize = 3;
+        private int maxSize;
         LinkedList<T> Buffer = new LinkedList<T>();
+
+        public int MaxSize
+        {
+            get { return maxSize; }
+            set { maxSize = value; }
+        }
 
         public delegate void Adding(int a, int b);
         public delegate void Removing(int a, int b);
